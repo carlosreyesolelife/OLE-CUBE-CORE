@@ -8,7 +8,7 @@ module.exports = {
   driverFactory: () => ({
     type: 'bigquery',
     projectId: process.env.CUBEJS_DB_BQ_PROJECT_ID,
-    credentials: JSON.parse(process.env.CUBEJS_DB_BQ_CREDENTIALS)
+    //credentials: JSON.parse(process.env.CUBEJS_DB_BQ_CREDENTIALS)
   }),
 
   scheduledRefreshContexts: () => [{

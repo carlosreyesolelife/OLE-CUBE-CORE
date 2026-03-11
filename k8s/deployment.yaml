@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ole-cube-core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ole-cube-core
+  template:
+    metadata:
+      labels:
+        app: ole-cube-core
+    spec:
+      containers:
+        - name: ole-cube-core
+          image: us-central1-docker.pkg.dev/TU_PROJECT_ID/cube/ole-cube-core:latest
+          ports:
+            - containerPort: 4000
+            - containerPort: 15432
+          env:
+            - name: CUBEJS_API_SECRET
+              value: "TU_SECRET"
+            - name: CUBEJS_DB_TYPE
+              value: "bigquery"
+            - name: CUBEJS_DB_BQ_PROJECT_ID
+              value: "olelifetech"

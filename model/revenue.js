@@ -20,8 +20,7 @@ cube(`revenue`, {
     }
   },
 
-  dimensions: {
-    // ✅ Primary key obligatorio
+    dimensions: {
     nro_application: {
       sql: `nro_application`,
       type: `string`,
@@ -29,7 +28,7 @@ cube(`revenue`, {
     },
 
     createdAt: {
-      sql: `created`,
+      sql: `CAST(\`created\` AS TIMESTAMP)`,  // ✅ BigQuery usa backticks y TIMESTAMP
       type: `time`
     }
   }
